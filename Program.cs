@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
+using SalaryApplication;
+using SalaryApplication.Models;
 using System;
+using System.Text.Json;
 
 namespace SalaryApp
 {
@@ -8,28 +11,41 @@ namespace SalaryApp
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
-            // Add services to the container.
             builder.Services.AddDbContext<AppDbContext>(options =>
-                options.UseNpgsql("Host=localhost;Port=5432;Username=postgres;Password=admin;Database=SalariesDB;")); // Replace with your actual connection string
+               options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-
+            builder.Services.AddCors();
             var app = builder.Build();
-
-            // Apply migrations
-            using (var scope = app.Services.CreateScope())
+            app.UseCors(builder => builder.AllowAnyOrigin());
+            app.Run(async (context) =>
             {
-                var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-                dbContext.Database.Migrate();
-            }
+                var response = context.Response;
+                var request = context.Request;
+                var path = request.Path;
+                if (path == "/getHighestSalariesOfDevelopers" && request.Method == "GET")
+                {
+                    using (var scope = app.Services.CreateScope())
+                    {
+                        var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+                        await GetHighestSalariesOfDevelopers(dbContext, response);
+                    }
+                }
+            });
 
             app.Run();
-            app.UseCors(builder =>
+
+            async Task GetHighestSalariesOfDevelopers(AppDbContext dbContext, HttpResponse response)
             {
-                builder.AllowAnyOrigin()
-                       .AllowAnyHeader()
-                       .AllowAnyMethod();
-            });
+                var highSalaryDevelopers = await dbContext.Developers
+                .Include(d => d.Manager)
+                .Include(d => d.Department)
+                .Where(d => d.Salary > d.Manager.Salary)
+                .ToListAsync();
+
+                await response.WriteAsJsonAsync(highSalaryDevelopers);
+            }
+
+
         }
     }
 }

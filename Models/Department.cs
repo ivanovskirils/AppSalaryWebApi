@@ -1,4 +1,4 @@
-﻿namespace SalaryApp.Models
+﻿namespace SalaryApplication.Models
 {
     public class Department
     {

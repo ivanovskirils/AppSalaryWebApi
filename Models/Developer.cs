@@ -1,4 +1,4 @@
-﻿namespace SalaryApp.Models
+﻿namespace SalaryApplication.Models
 {
     public class Developer
     {
@@ -8,8 +8,9 @@
         public int Salary { get; set; }
         public string Email { get; set; }
         public int ManagerId { get; set; }
-        public int DepartmentId { get; set; }
-        public Department Department { get; set; }
         public Manager Manager { get; set; }
+        public int DepartmentId { get; set; } 
+        public Department Department { get; set; }
+
     }
 }

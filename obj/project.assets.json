@@ -1033,11 +1033,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ivano\\Documents\\GitHub\\dist\\SalaryApp\\SalaryApp.csproj",
-      "projectName": "SalaryApp",
-      "projectPath": "C:\\Users\\ivano\\Documents\\GitHub\\dist\\SalaryApp\\SalaryApp.csproj",
+      "projectUniqueName": "C:\\Users\\ivano\\Documents\\GitHub\\dist\\SalaryApplication\\SalaryApplication.csproj",
+      "projectName": "SalaryApplication",
+      "projectPath": "C:\\Users\\ivano\\Documents\\GitHub\\dist\\SalaryApplication\\SalaryApplication.csproj",
       "packagesPath": "C:\\Users\\ivano\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ivano\\Documents\\GitHub\\dist\\SalaryApp\\obj\\",
+      "outputPath": "C:\\Users\\ivano\\Documents\\GitHub\\dist\\SalaryApplication\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ivano\\AppData\\Roaming\\NuGet\\NuGet.Config",

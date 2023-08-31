@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gwJHdnOtO+kXodYK1sS2ayzzhIFrUctIUyODKPHif5h+AodIPeJWF0H7cpWrszZX1ye6d44iPo5Ub+4ayCLDCg==",
+  "dgSpecHash": "fc1s2n7K973msQhOErk2q7ngdvTpUuYD/jW9mL02vCcKf2hAz67KRKc8gthkVKqYaXvmvC6t2UXoNzCSTzF/AA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ivano\\Documents\\GitHub\\dist\\SalaryApp\\SalaryApp.csproj",
+  "projectFilePath": "C:\\Users\\ivano\\Documents\\GitHub\\dist\\SalaryApplication\\SalaryApplication.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ivano\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\ivano\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.10\\microsoft.entityframeworkcore.7.0.10.nupkg.sha512",
